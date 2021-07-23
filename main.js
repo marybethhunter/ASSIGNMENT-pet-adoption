@@ -228,7 +228,7 @@ const pets = [
     </div>`
     const newCard = document.createElement('div');
     newCard.innerHTML = card;
-    document.body.appendChild(newCard.firstChild);
+    document.getElementById("card-container").appendChild(newCard.firstChild); //this isn't working
   });
 
 //returning the card class then changing the innerhtml and then adding a new one with appendchild
