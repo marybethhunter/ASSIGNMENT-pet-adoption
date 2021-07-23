@@ -1,0 +1,29 @@
+body {
+  background-color: lightgrey;
+}
+
+header {
+  text-align: center;
+}
+
+h5 {
+  text-align: center;
+}
+
+p {
+  text-align: center;
+}
+
+footer {
+  text-align: center;
+}
+
+/* .card-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card {
+  padding: 0%;
+  flex-grow: 1;
+} */
