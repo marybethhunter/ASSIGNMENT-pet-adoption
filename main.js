@@ -210,3 +210,27 @@ const pets = [
       imageUrl: "http://lsae2.iypcdn.com/static//modules/uploads/photos/language1/dino-live-22.jpg?119"
     }
   ];
+
+//for each loop with a card inside 
+//trying to use `${}` to put each looped pet property
+//inside but it isn't working. this does
+//make 30 cards but everything is undefined for right now
+//update using index worked - shout out elle
+
+  pets.forEach((pet, index) => {
+    const card = `<div class="card" style="width: 18rem;">
+    <header>${pets[index].name}</header>
+    <img src=${pets[index].imageUrl} class="card-img-top" alt="picture of pet">
+    <div class="card-body">
+      <h5 class="card-title">${pets[index].color}</h5>
+      <p class="card-text">${pets[index].specialSkill}</p>
+      <footer>${pets[index].type}</footer>
+    </div>`
+    const newCard = document.createElement('div');
+    newCard.innerHTML = card;
+    document.body.appendChild(newCard.firstChild);
+  });
+
+//returning the card class then changing the innerhtml and then adding a new one with appendchild
+
+// pets.forEach(pet => { console.log(pet)}; og foreach loop
