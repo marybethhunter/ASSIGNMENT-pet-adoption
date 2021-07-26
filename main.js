@@ -242,14 +242,21 @@ const pets = [
   },
 ];
 
-//variables and forEach function to loop through objects and render to dom
+//variables
 const divElement = document.querySelector("#card-container");
 const catbtn = document.querySelector("#cat-btn");
 const dogbtn = document.querySelector("#dog-btn");
 const dinobtn = document.querySelector("#dino-btn");
 const allpetsbtn = document.querySelector("#allpets-btn");
 
-pets.forEach((pet, index) => {
+//renderToDom function
+const renderToDom = (divId, textToRender) => {
+  const selectedDiv = document.querySelector(divId);
+  selectedDiv.innerHTML = textToRender;
+};
+
+function petCardsCreation () {
+  pets.forEach((pet, index) => {
   divElement.innerHTML += `
   <div class="card" style="width: 18rem;">
     <header>${pets[index].name}</header>
@@ -260,12 +267,9 @@ pets.forEach((pet, index) => {
     <footer>${pets[index].type}</footer>
   </div>`;
 });
+}
 
-//renderToDom function
-const renderToDom = (divId, textToRender) => {
-  const selectedDiv = document.querySelector(divId);
-  selectedDiv.innerHTML = textToRender;
-};
+petCardsCreation();
 
 //filtering pets by type
 const filterPets = (array, type) => {
@@ -275,6 +279,8 @@ const filterPets = (array, type) => {
 const catType = filterPets(pets, "cat");
 const dogType = filterPets(pets, "dog");
 const dinoType = filterPets(pets, "dino");
+
+const allPets = petCardsCreation();
 
 //the function only showing the cats
 const printCats = (event) => {
@@ -318,10 +324,8 @@ catbtn.addEventListener("click", () => {
         <p class="card-text">${pets[index].specialSkill}</p>
       <footer>${pets[index].type}</footer>
     </div>`;
-    console.log(domString);
   });
-
-  renderToDom("#card-container", domString);
+    renderToDom("#card-container", domString);
 });
 
 //button click eventListener showing only dogs when dogs button clicked
@@ -381,3 +385,9 @@ allpetsbtn.addEventListener("click", () => {
   });
   renderToDom("#card-container", domString);
 });
+
+catbtn.addEventListener('click', printCats);
+//document.getElementById("#cat-btn").addEventListener('click', printCats);
+dogbtn.addEventListener('click', printDogs);
+dinobtn.addEventListener('click', printDinos);
+allpetsbtn.addEventListener('click', petCardsCreation());
