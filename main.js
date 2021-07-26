@@ -242,7 +242,12 @@ const pets = [
   },
 ];
 
+//variables and forEach function to loop through objects and render to dom
 const divElement = document.querySelector("#card-container");
+const catbtn = document.querySelector("#cat-btn");
+const dogbtn = document.querySelector("#dog-btn");
+const dinobtn = document.querySelector("#dino-btn");
+const allpetsbtn = document.querySelector("#allpets-btn");
 
 pets.forEach((pet, index) => {
   divElement.innerHTML += `
@@ -256,22 +261,112 @@ pets.forEach((pet, index) => {
   </div>`;
 });
 
-
+//renderToDom function
 const renderToDom = (divId, textToRender) => {
   const selectedDiv = document.querySelector(divId);
   selectedDiv.innerHTML = textToRender;
 };
 
+//filtering pets by type
+const filterPets = (array, type) => {
+  return pets.filter((pet) => pet.type === type);
+};
 
-const catbtn = document.querySelector('#cat-btn');
-const dogbtn = document.querySelector('#dog-btn');
-const dinobtn = document.querySelector('#dino-btn');
-const allpetsbtn = document.querySelector ('#allpets-btn');
+const catType = filterPets(pets, "cat");
+const dogType = filterPets(pets, "dog");
+const dinoType = filterPets(pets, "dino");
 
-
+//the function only showing the cats
 const printCats = (event) => {
-  let domString = '';
-  if (event.target.id === "cat-btn") 
+  let domString = "";
+  if (event.target.id === "cat-btn")
+    pets.forEach((pet, index) => {
+      divElement.innerHTML += `
+    <div class="card" style="width: 18rem;">
+      <header>${pets[index].name}</header>
+      <img src=${pets[index].imageUrl} class="card-img-top" alt="picture of pet">
+      <div class="card-body">
+        <p class="card-title">${pets[index].color}</p>
+        <p class="card-text">${pets[index].specialSkill}</p>
+      <footer>${pets[index].type}</footer>
+    </div>`;
+      console.log(domString);
+    });
+  renderToDom("#card-container", domString);
+};
+
+//the function only showing the dogs
+const printDogs = (event) => {};
+
+//the function only showing the dinos
+const printDinos = (event) => {};
+
+//the function unfiltering pets - showing all
+const printAllPets = (event) => {};
+
+//button click eventListener showing only cats when cat button clicked
+catbtn.addEventListener("click", () => {
+  //divElement.innerHTML = '';
+  let domString = "";
+  catType.forEach((pet, index) => {
+    domString += `
+    <div class="card" style="width: 18rem;">
+      <header>${pets[index].name}</header>
+      <img src=${pets[index].imageUrl} class="card-img-top" alt="picture of pet">
+      <div class="card-body">
+        <p class="card-title">${pets[index].color}</p>
+        <p class="card-text">${pets[index].specialSkill}</p>
+      <footer>${pets[index].type}</footer>
+    </div>`;
+    console.log(domString);
+  });
+
+  renderToDom("#card-container", domString);
+});
+
+//button click eventListener showing only dogs when dogs button clicked
+dogbtn.addEventListener("click", () => {
+  //divElement.innerHTML = '';
+  let domString = "";
+  dogType.forEach((pet, index) => {
+    domString += `
+      <div class="card" style="width: 18rem;">
+        <header>${pets[index].name}</header>
+        <img src=${pets[index].imageUrl} class="card-img-top" alt="picture of pet">
+        <div class="card-body">
+          <p class="card-title">${pets[index].color}</p>
+          <p class="card-text">${pets[index].specialSkill}</p>
+        <footer>${pets[index].type}</footer>
+      </div>`;
+    console.log(domString);
+  });
+
+  renderToDom("#card-container", domString);
+});
+
+//button click eventListener showing only dinos when dinos button clicked
+dinobtn.addEventListener("click", () => {
+  //divElement.innerHTML = '';
+  let domString = "";
+  dinoType.forEach((pet, index) => {
+    domString += `
+      <div class="card" style="width: 18rem;">
+        <header>${pets[index].name}</header>
+        <img src=${pets[index].imageUrl} class="card-img-top" alt="picture of pet">
+        <div class="card-body">
+          <p class="card-title">${pets[index].color}</p>
+          <p class="card-text">${pets[index].specialSkill}</p>
+        <footer>${pets[index].type}</footer>
+      </div>`;
+    console.log(domString);
+  });
+
+  renderToDom("#card-container", domString);
+});
+
+//button click eventListener showing all pets when all pets button clicked
+allpetsbtn.addEventListener("click", () => {
+  let domString = "";
   pets.forEach((pet, index) => {
     divElement.innerHTML += `
     <div class="card" style="width: 18rem;">
@@ -281,57 +376,8 @@ const printCats = (event) => {
         <p class="card-title">${pets[index].color}</p>
         <p class="card-text">${pets[index].specialSkill}</p>
       <footer>${pets[index].type}</footer>
-    </div>`
-  })
-  const returnCat = (petArray, petType) => {
-  return pets.filter(pet => pet.type === "cat");
-}
-
-  renderToDom('#cat-btn', domString);
-}
-
-const printDogs = (event) => {
-
-}
-
-const printDinos = (event) => {
-
-}
-
-const printAllPets = (event) => {
-
-}
-
-
-
-catbtn.addEventListener('click', () => {
-
+    </div>`;
+    console.log(domString);
+  });
+  renderToDom("#card-container", domString);
 });
-
-
-dogbtn.addEventListener('click', () => {
-  
-});
-
-
-dinobtn.addEventListener('click', () => {
-  
-});
-
-
-allpetsbtn.addEventListener('click', () => {
-  
-});
-
-
-//const filterFavColor = (array, color) => {
-  //return array.filter(memberObj => memberObj.color === color);
-//};
-//
-//console.log(filterFavColor(groupOne, "red"));
-//
-//const filterFavNumber = (array, number) => {
-  //return array.filter(memberObj => memberObj.favNumber === number);
-//};
-//
-//console.log(filterFavNumber(groupOne, 2));
