@@ -271,6 +271,7 @@ const petBuilder = (petsArray) => {
     <div class="card-body">
       <p class="card-title">${pet.color}</p>
       <p class="card-text">${pet.specialSkill}</p>
+      <button class="deletebtn">Delete</button>
     <footer>${pet.type}</footer>
     </div>
     </div>
@@ -302,10 +303,19 @@ const handleButtonClick = (event) => {
   }
 };
 
+//function handling delete event
+const deleteButton = (event) => {
+  if (event.target.id === "deletebtn") {
+    pets.slice
+  }
+}
+
 //function handling the button events
 const buttonEvents = () => {
   document.querySelector("#allBtns")
   document.addEventListener("click", (handleButtonClick));
+  document.querySelector("#cardContainer")
+  document.addEventListener("click", (deleteButton));
 };
 
 const init = () => {

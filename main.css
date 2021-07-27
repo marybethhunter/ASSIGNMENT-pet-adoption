@@ -22,6 +22,7 @@ body {
 .card-title, 
 .card-body {
   padding: 0px;
+  text-align: center;
 }
 
 header {
@@ -52,4 +53,8 @@ footer {
   margin-bottom: 15px;
   border: solid darkgray 1px;
   padding: 10px;
+}
+
+.deletebtn {
+  background-color: rgb(255, 52, 52);
 }
