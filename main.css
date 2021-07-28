@@ -8,6 +8,7 @@
 .card {
   margin: 20px;
   padding: 0%;
+  width: 300px;
 }
 
 button {
@@ -18,35 +19,35 @@ body {
   background-color: lightgrey;
 }
 
-.card-text, 
+/* .card-text, 
 .card-title, 
 .card-body {
   padding: 0px;
   margin: 0px;
   text-align: center;
-}
+} */
 
-header {
+/* header {
   text-align: center;
   border-bottom: solid 1px darkgray;
   background-color: rgb(230, 228, 228);
   padding-top: 5px;
   padding-bottom: 10px;
-}
+} */
 
 p {
   text-align: center;
 }
 
-.typeStyles {
+/* .typeStyles {
   text-align: center;
   border-top: solid 1px darkgray;
   background-color: rgb(230, 228, 228);
   padding: 10px;
   margin: 0px;
-}
+} */
 
-.card-img-top {
+img {
   align-self: center;
   max-width: 175px;
   max-height: 200px;
@@ -54,4 +55,12 @@ p {
   margin-bottom: 10px;
   border: solid darkgray 1px;
   padding: 10px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 50px;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-top: 50px;
+  margin-bottom: 30px;
 }

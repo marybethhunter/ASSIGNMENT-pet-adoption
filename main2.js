@@ -234,16 +234,16 @@ const petBuilder = (petsArray) => {
   let domString = "";
   petsArray.forEach((pet, i) => {
     domString += `
-    <div class="card" style="width: 18rem;">
-    <header>${pet.name}</header>
-    <img src=${pet.imageUrl} class="card-img-top" alt="${pet.name}">
+    <div class="card text-center">
+      <div class="card-header">${pet.name}</div>
     <div class="card-body">
-      <p class="card-title">${pet.color}</p>
+      <img src=${pet.imageUrl} class="card-img-top" alt="${pet.name}"> 
+      <h5 class="card-title">${pet.color}</h5>
       <p class="card-text">${pet.specialSkill}</p>
-      <button type="button" id=${i} class="deleteBtn" style="background-color: red">Delete</button>
-      <p class="typeStyles">${pet.type}</p>
-    </div>
-    </div>
+      <button type="button" id=${i} class="deleteBtn" style="background-color: red">Delete</button></div>
+    <div class="card-footer text-muted">${pet.type}</div>
+  </div>
+</div>
     `;
   });
 
