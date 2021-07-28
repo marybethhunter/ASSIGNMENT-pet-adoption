@@ -22,6 +22,7 @@ body {
 .card-title, 
 .card-body {
   padding: 0px;
+  margin: 0px;
   text-align: center;
 }
 
@@ -37,7 +38,7 @@ p {
   text-align: center;
 }
 
-footer {
+.typeStyles {
   text-align: center;
   border-top: solid 1px darkgray;
   background-color: rgb(230, 228, 228);
@@ -50,7 +51,7 @@ footer {
   max-width: 175px;
   max-height: 200px;
   margin-top: 30px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   border: solid darkgray 1px;
   padding: 10px;
 }
