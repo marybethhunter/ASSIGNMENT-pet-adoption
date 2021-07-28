@@ -263,7 +263,7 @@ const buttons = () => {
 //function that builds pets
 const petBuilder = (petsArray) => {
   let domString = "";
-  petsArray.forEach((pet) => {
+  petsArray.forEach((pet, i) => {
     domString += `
     <div class="card" style="width: 18rem;">
     <header>${pet.name}</header>
@@ -271,7 +271,7 @@ const petBuilder = (petsArray) => {
     <div class="card-body">
       <p class="card-title">${pet.color}</p>
       <p class="card-text">${pet.specialSkill}</p>
-      <button class="deletebtn">Delete</button>
+      <button type="button" id=${i} style="background-color: red">Delete</button>
     <footer>${pet.type}</footer>
     </div>
     </div>
@@ -305,17 +305,23 @@ const handleButtonClick = (event) => {
 
 //function handling delete event
 const deleteButton = (event) => {
-  if (event.target.id === "deletebtn") {
-    pets.slice
-  }
+  const targetType = event.target.type
+  const targetId = event.target.id
+
+  if (targetType ===  "button") {
+    pets.splice(targetId, 1);
+    petBuilder(pets);
+  };
 }
 
 //function handling the button events
 const buttonEvents = () => {
-  document.querySelector("#allBtns")
-  document.addEventListener("click", (handleButtonClick));
-  document.querySelector("#cardContainer")
-  document.addEventListener("click", (deleteButton));
+  document
+    .querySelector("#allBtns")
+    .addEventListener("click", (handleButtonClick));
+  document
+    .querySelector("#cardContainer")
+    .addEventListener("click", (deleteButton));
 };
 
 const init = () => {
